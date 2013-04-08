@@ -13,9 +13,20 @@ class ListsController < ApplicationController
     end
   end
 
+
   def index
     @lists = List.paginate(page: params[:page])
+
+    # ===============================
+    # responds to /lists as HTML,
+    #             /lists.json as JSON
+    # ===============================
+    respond_to do |format|
+      format.html
+      format.json { render json: @lists }
+    end
   end
+
 
   def destroy
     @list.destroy
