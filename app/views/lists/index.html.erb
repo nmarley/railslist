@@ -1,0 +1,11 @@
+<% provide(:title, 'All lists') %>
+<h1>All lists</h1>
+
+<%= will_paginate %>
+
+<ul class="lists">
+  <%= render @lists %>
+</ul>
+
+<%= will_paginate %>
+

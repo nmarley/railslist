@@ -1,0 +1,9 @@
+<li>
+  <span class="content"><%= wrap list.name %></span>
+  <span class="timestamp">
+    Updated <%= time_ago_in_words(list.updated_at) %> ago.
+  </span>
+	<% if current_user?(list.user) %>
+		<%= render 'shared/delete_list_link', object: list %>
+	<% end %>
+</li>

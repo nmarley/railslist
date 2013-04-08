@@ -1,8 +1,8 @@
 development:
   adapter: postgresql
   host: localhost
-  username: rails-dev
-  database: rails-dev
+  username: rlist-dev
+  database: rlist-dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -10,12 +10,12 @@ development:
 test:
   adapter: postgresql
   host: localhost
-  username: rails-test
-  database: rails-test
+  username: rlist-test
+  database: rlist-test
 
 production:
   adapter: postgresql
   host: localhost
-  username: rails-prod
-  database: rails-prod
+  username: rlist-prod
+  database: rlist-prod
 

@@ -9,12 +9,12 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
+    <% if @user.lists.any? %>
+      <h3>Lists (<%= @user.lists.count %>)</h3>
+      <ol class="lists">
+        <%= render @lists %>
       </ol>
-      <%= will_paginate @microposts %>
+      <%= will_paginate @lists %>
     <% end %>
   </div>
 </div>

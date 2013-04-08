@@ -20,6 +20,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:microposts) }
   it { should respond_to(:feed) }
+  it { should respond_to(:lists) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -169,6 +170,31 @@ describe User do
       its(:feed) { should include(older_micropost) }
       its(:feed) { should_not include(unfollowed_post) }
     end
+  end
+
+
+  describe "list associations" do
+    before { @user.save }
+    let!(:older_list) do
+      FactoryGirl.create(:list, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_list) do
+      FactoryGirl.create(:list, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right lists in the right order" do
+      @user.lists.should == [newer_list, older_list]
+    end
+
+    it "should destroy associated lists" do
+      lists = @user.lists.dup
+      @user.destroy
+      lists.should_not be_empty
+      lists.each do |list|
+        List.find_by_id(list.id).should be_nil
+      end
+    end
+
   end
 
 end
