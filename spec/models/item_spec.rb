@@ -28,5 +28,21 @@ describe Item do
     end
   end
 
+
+  describe "when list_id is not present" do
+    before { @item.list_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "with blank content" do
+    before { @item.content = " " }
+    it { should_not be_valid }
+  end
+
+#  describe "with content that is too long" do
+#    before { @item.content = "a" * 141 }
+#    it { should_not be_valid }
+#  end
+
 end
 
