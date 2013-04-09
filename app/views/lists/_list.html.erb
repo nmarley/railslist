@@ -1,5 +1,7 @@
 <li>
-  <span class="content"><%= wrap list.name %></span>
+  <span class="content">
+	<%= link_to wrap(list.name), list_path(list.id) %>
+	</span>
   <span class="timestamp">
     Updated <%= time_ago_in_words(list.updated_at) %> ago.
   </span>

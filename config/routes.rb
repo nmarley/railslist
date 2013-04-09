@@ -1,8 +1,12 @@
 SampleApp::Application.routes.draw do
+  #get "items/new"
+  #get "items/edit"
+
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
   #resources :microposts, only: [:create, :destroy]
   resources :lists
+  resources :items
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
