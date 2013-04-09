@@ -24,5 +24,17 @@ describe "ListPages" do
       end
     end
   end
+
+#  describe "list deletion" do
+#    before { visit root_path }
+#    let(:list) { user.lists.build( FactoryGirl.create(:list) ) }
+#
+#    it "should add some items" do
+#      let(:i1) { list.items.build(FactoryGirl.create(:item)) }
+#      let(:i2) { list.items.build(FactoryGirl.create(:item)) }
+#    end
+#    
+#  end
+
 end
 

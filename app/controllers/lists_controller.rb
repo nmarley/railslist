@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   def update
     if @list.update_attributes(params[:list])
       flash[:success] = "List updated"
-      redirect_to root_url
+      redirect_to @list
     else
       render 'edit'
     end
@@ -24,17 +24,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-   
     @item = @list.items.build
     @itemfeed_items = @list.feed.paginate(page: params[:page])
-  #def home
-    #if signed_in?
-    #  @list       = current_user.lists.build
-   #   #@micropost  = current_user.microposts.build
-  #    @feed_items = current_user.feed.paginate(page: params[:page])
- #   end
-#  end
-    #@items = @list.items.paginate(page: params[:page]) # not yet...
   end
 
 
@@ -51,9 +42,12 @@ class ListsController < ApplicationController
     end
   end
 
-
   def destroy
-    @list.destroy
+    if @list.items.any?
+      flash[:error] = 'Cannot delete a list with items.'
+    else
+      @list.destroy
+    end
     redirect_to root_url
   end
 

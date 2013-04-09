@@ -1,6 +1,9 @@
 <li id="<%= feed_item.id %>">
   <span class="name">
   <%= link_to wrap(feed_item.name), list_path(feed_item.id) %>
+  <span class="item-count">
+  | <%= pluralize(feed_item.items.size, 'item') %>
+  </span>
   </span>
 	<span class="timestamp">
 		Updated <%= time_ago_in_words(feed_item.updated_at) %> ago.

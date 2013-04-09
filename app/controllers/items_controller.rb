@@ -16,18 +16,10 @@ class ItemsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def create
-    # TODO: remove debugging - nmarley
-    #File.open('/tmp/debug.out', 'w') do |f|
-    #  f.write(params.inspect)
-    #end
-    #fh = File.open('/tmp/debug.out', 'w')
     list = List.find_by_id(params[:item][:list_id])
     params[:item].delete(:list_id)
-    #fh.write("params[:list_id] = " + params[:list_id])
-    #fh.write(list.inspect)
-    #fh.close    
     @item = list.items.build(params[:item])
     if @item.save
       flash[:success] = "Item created!"
@@ -43,11 +35,10 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to list_path(list.id)
   end
-  
+
   def index
     @lists = List.paginate(page: params[:page])
   end
-  
 
   private
   def correct_user
