@@ -7,4 +7,9 @@ class List < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 40 }
 
   default_scope order: 'lists.updated_at DESC'
+  
+  def feed
+    Item.where("list_id = ?", id)
+  end
+  
 end

@@ -1,25 +1,16 @@
 <%= provide(:title, @list.name) %>
-<h1><%= @list.name %></h1>
-
 <div class="row">
-  <div class="span6 offset3">
-    <ol class="items">
-      <% @list.items.each do |item| %>
-        <li>
-				  <span class="content">
-					<%= item.content %>
-  				</span>
-  				<span class="timestamp">
-    			Updated <%= time_ago_in_words(item.updated_at) %> ago.
-					</span>
-					<span class="actions">
-						<small>
-						<%= link_to "edit", edit_item_path(item.id) %> |
-						<%= render 'shared/delete_micropost_link', object: item %>
-						</small>
-					</span>
-				</li>
-      <% end %>
-    </ol>
-  </div>
+	<aside class="span4">
+    <section>
+      <%= render 'shared/list_info' %>
+    </section>
+    <section>
+      <%= render 'shared/item_form' %>
+    </section>
+  </aside>
+	<div class="span8">
+  	<h3>Item Feed</h3>
+		<%= render 'shared/itemfeed' %>
+	</div>
 </div>
+

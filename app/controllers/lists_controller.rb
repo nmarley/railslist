@@ -24,6 +24,16 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+   
+    @item = @list.items.build
+    @itemfeed_items = @list.feed.paginate(page: params[:page])
+  #def home
+    #if signed_in?
+    #  @list       = current_user.lists.build
+   #   #@micropost  = current_user.microposts.build
+  #    @feed_items = current_user.feed.paginate(page: params[:page])
+ #   end
+#  end
     #@items = @list.items.paginate(page: params[:page]) # not yet...
   end
 
