@@ -1,5 +1,7 @@
 <li id="<%= feed_item.id %>">
-	<span class="name"><%= wrap(feed_item.name) %></span>
+  <span class="name">
+  <%= link_to wrap(feed_item.name), edit_list_path(feed_item.id) %>
+  </span>
 	<span class="timestamp">
 		Updated <%= time_ago_in_words(feed_item.updated_at) %> ago.
 	</span>

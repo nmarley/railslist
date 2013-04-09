@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
-  before_filter :correct_user,   only: :destroy
+  before_filter :correct_user,   only: [:destroy, :edit, :update]
 
   def create
     @list = current_user.lists.build(params[:list])
@@ -11,6 +11,20 @@ class ListsController < ApplicationController
       @feed_items = []
       render 'static_pages/home'
     end
+  end
+
+  def update
+    if @list.update_attributes(params[:list])
+      flash[:success] = "List updated"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @list = List.find(params[:id])
+    #@items = @list.items.paginate(page: params[:page]) # not yet...
   end
 
 
@@ -31,6 +45,9 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to root_url
+  end
+
+  def edit
   end
 
   private
