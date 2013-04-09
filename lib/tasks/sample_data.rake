@@ -18,8 +18,8 @@ namespace :db do
     end
     users = User.all(limit: 6)
     50.times do
-      content = Faker::Lorem.sentence(5)
-      users.each { |user| user.microposts.create!(content: content) }
+      #content = Faker::Lorem.sentence(5)
+      #users.each { |user| user.microposts.create!(content: content) }
       name    = Faker::Lorem.sentence(2).slice(0, 40)
       users.each { |user| user.lists.create!(name: name) }
     end
