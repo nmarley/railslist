@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410050231) do
+ActiveRecord::Schema.define(:version => 20130410193059) do
 
   create_table "items", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "list_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -38,6 +38,29 @@ ActiveRecord::Schema.define(:version => 20130410050231) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "t_items", :id => false, :force => true do |t|
+    t.integer  "id",                       :null => false
+    t.string   "name",      :limit => 128, :null => false
+    t.text     "descr"
+    t.integer  "list_id",                  :null => false
+    t.datetime "create_ts",                :null => false
+    t.datetime "update_ts",                :null => false
+  end
+
+  create_table "t_lists", :id => false, :force => true do |t|
+    t.integer  "id",                      :null => false
+    t.string   "name",      :limit => 32, :null => false
+    t.integer  "user_id",                 :null => false
+    t.datetime "create_ts",               :null => false
+    t.datetime "update_ts",               :null => false
+  end
+
+  create_table "t_users", :id => false, :force => true do |t|
+    t.integer "id",                     :null => false
+    t.string  "username", :limit => 20, :null => false
+    t.text    "passhash"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

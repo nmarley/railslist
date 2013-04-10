@@ -30,6 +30,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.paginate(page: params[:page])
+      .where("user_id = ?", current_user.id)
 
     # ===============================
     # responds to /lists as HTML,
