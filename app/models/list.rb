@@ -1,5 +1,5 @@
 class List < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :private
   belongs_to :user
   has_many :items, dependent: :destroy
 

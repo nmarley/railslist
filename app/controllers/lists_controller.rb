@@ -28,7 +28,6 @@ class ListsController < ApplicationController
     @itemfeed_items = @list.feed.paginate(page: params[:page])
   end
 
-
   def index
     @lists = List.paginate(page: params[:page])
 

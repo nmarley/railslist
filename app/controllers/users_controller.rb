@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@user = User.find(params[:id])
-    #@lists = @user.lists.paginate(page: params[:page])
-    redirect_to root_url
+    @user = User.find(params[:id])
+    @lists = @user.lists.paginate(page: params[:page])
+    #redirect_to root_url
   end
 
   def new
