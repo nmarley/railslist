@@ -1,13 +1,16 @@
-<li>
-  <span class="content">
-	<%= link_to wrap(list.name), list_path(list.id) %>
+<li id="<%= list.id %>">
+  <span class="name">
+  <%= link_to wrap(list.name), list_path(list.id) %>
   <% if list.private? %>
-  <i class="icon-lock"></i>
+    <i class="icon-lock"></i>
   <% end %>
-	</span>
-  <span class="timestamp">
-    Updated <%= time_ago_in_words(list.updated_at) %> ago.
+  <span class="item-count">
+  | <%= pluralize(list.items.size, 'item') %>
   </span>
+  </span>
+	<span class="timestamp">
+		Updated <%= time_ago_in_words(list.updated_at) %> ago.
+	</span>
 	<% if current_user?(list.user) %>
 		<%= render 'shared/delete_list_link', object: list %>
 	<% end %>
