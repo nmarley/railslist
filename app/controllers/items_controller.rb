@@ -19,6 +19,11 @@ class ItemsController < ApplicationController
 
   def create
     list = List.find_by_id(params[:item][:list_id])
+    if current_user.id != list.user_id
+      flash[:error] = "Not list owner"
+      redirect_to root_url
+      return
+    end
     params[:item].delete(:list_id)
     @item = list.items.build(params[:item])
     if @item.save

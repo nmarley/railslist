@@ -1,0 +1,4 @@
+
+* update list updated_at timestamp when an item is added to the list
+* shared lists (one of the main used functions)
+

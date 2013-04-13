@@ -5,7 +5,9 @@
       <%= render 'shared/list_info' %>
     </section>
     <section>
-      <%= render 'shared/item_form' %>
+      <% if current_user.id == @list.user.id %>
+        <%= render 'shared/item_form' %>
+      <% end %>
     </section>
   </aside>
 	<div class="span8">
