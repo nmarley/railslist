@@ -11,7 +11,7 @@
 	<span class="timestamp">
 		Updated <%= time_ago_in_words(feed_item.updated_at) %> ago.
 	</span>
-	<% if current_user?(feed_item.user) %>
+	<% if signed_in? && current_user?(feed_item.user) %>
 		<%= render 'shared/delete_list_link', object: feed_item %>
 	<% end %>
 </li>

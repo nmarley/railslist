@@ -5,7 +5,7 @@
       <%= render 'shared/list_info' %>
     </section>
     <section>
-      <% if current_user.id == @list.user.id %>
+      <% if signed_in? && (current_user.id == @list.user.id) %>
         <%= render 'shared/item_form' %>
       <% end %>
     </section>
@@ -15,4 +15,3 @@
 		<%= render 'shared/itemfeed' %>
 	</div>
 </div>
-

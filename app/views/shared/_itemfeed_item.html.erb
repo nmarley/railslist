@@ -5,7 +5,7 @@
   <span class="timestamp">
     Updated <%= time_ago_in_words(itemfeed_item.updated_at) %> ago.
   </span>
-  <% if current_user?(itemfeed_item.list.user) %>
+  <% if signed_in? && current_user?(itemfeed_item.list.user) %>
     <%= link_to "edit", edit_item_path(itemfeed_item.id) %> | 
     <%= render 'shared/delete_micropost_link', object: itemfeed_item %>
   <% end %>
