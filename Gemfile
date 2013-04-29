@@ -14,7 +14,9 @@ gem 'rails_autolink', '1.0.10'
 gem 'bootstrap-sass', '2.3.0.1'
 
 
-gem 'unicorn', '4.6.2'
+group :production do
+  gem 'unicorn', '4.6.2'
+end
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
@@ -22,6 +24,7 @@ end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'thin', '1.5.1'
 end
 
 group :test do

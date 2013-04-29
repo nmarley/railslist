@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "ListPages" do
+describe "List pages" do
   subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
@@ -23,6 +23,20 @@ describe "ListPages" do
         expect { click_button "Post" }.to change(List, :count).by(1)
       end
     end
+  end
+
+  describe "viewing list index while signed in" do
+    before { visit lists_path }
+    it { should have_selector('h1', text: 'My lists') }
+  end
+
+  describe "viewing list index while signed out" do
+    before do
+      click_link "Sign out"
+      visit lists_path
+    end
+    it { should have_selector('div.alert.alert-notice',
+                              text: 'Please sign in.') }
   end
 
 #  describe "list deletion" do

@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy]
+  #before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :signed_in_user
   before_filter :correct_user,   only: [:destroy, :edit, :update]
 
   def new
   end
 
   def edit
+  end
+
+  def show
   end
 
   def update

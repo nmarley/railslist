@@ -45,8 +45,8 @@ describe "Static pages" do
 
   describe "About page" do
     before { visit about_path }
-    let(:heading)    { 'About Us' }
-    let(:page_title) { 'About Us' }
+    let(:heading)    { 'About' }
+    let(:page_title) { 'About' }
 
     it_should_behave_like "all static pages"
   end
@@ -62,7 +62,7 @@ describe "Static pages" do
   it "should have the right links on the layout" do
     visit root_path
     click_link "About"
-    page.should have_selector 'title', text: full_title('About Us')
+    page.should have_selector 'title', text: full_title('About')
     click_link "Help"
     page.should have_selector 'title', text: full_title('Help')
     click_link "Contact"
