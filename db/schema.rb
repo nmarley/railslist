@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413181455) do
+ActiveRecord::Schema.define(:version => 20130429145051) do
 
   create_table "items", :force => true do |t|
     t.text     "content"
@@ -42,5 +42,9 @@ ActiveRecord::Schema.define(:version => 20130413181455) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  add_foreign_key "items", "lists", :name => "items_list_id_fk"
+
+  add_foreign_key "lists", "users", :name => "lists_user_id_fk"
 
 end
