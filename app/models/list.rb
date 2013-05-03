@@ -4,7 +4,7 @@ class List < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   validates :user_id, presence: true
-  validates :name, presence: true, length: { maximum: 40 }
+  validates :name, presence: true, length: { maximum: 200 }
 
   default_scope order: 'lists.updated_at DESC'
 
