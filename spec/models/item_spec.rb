@@ -7,7 +7,6 @@ describe Item do
     @list = user.lists.build(name: "Lorem Impsum")
     @list.save!
     @item = @list.items.build(content: "Ispo facto meeny moe")
-    #@item.save!
   end
 
   subject { @item }
@@ -37,34 +36,32 @@ describe Item do
     it { should_not be_valid }
   end
 
-  # can't get these for the life of me...
-  # functionality is now working nonetheless. it would be nice if I could have
-  # rspec tests for it.
 
-#  describe "new item" do
-#    before do
-#      @item = @list.items.create!(content: "lorem ipsum")
+  # clean up, but still can't get to green.
+  # something to do with how change() is working/not working, i think
+
+#  describe "when saving a new item" do
+#    let(:other_item) { @item.list.items.build(content: 'Second item!') }
+#    before { set_list_updated_at_ts_back(@item.list) }
+#    it "should increment total item count" do
+#      expect do
+#        other_item.save
+#      end.to change(Item, :count).by(1)
 #    end
-#
 #    it "should update list updated_at timestamp" do
-#      expect {
-#        @item.content = "meeny moe"
-#        @item.save
-#      }.to change(@list, :updated_at)
+#      expect do
+#        other_item.save
+#      end.to change(other_item.list, :updated_at)
 #    end
 #  end
 #
-#  describe "updating content" do
-#    before do
-#      @item.list.updated_at = 1.day.ago
-#      @item.list.save!
-#    end
-#
+#  describe "when updating content" do
+#    before { set_list_updated_at_ts_back(@item.list) }
 #    it "should update list updated_at timestamp" do
-#      expect {
+#      expect do
 #        @item.content = "lorem ipsum"
 #        @item.save!
-#      }.to change(@item.list, :updated_at)
+#      end.to change(@item.list, :updated_at)
 #    end
 #  end
 

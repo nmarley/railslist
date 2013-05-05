@@ -9,3 +9,8 @@ def sign_in(user)
   cookies[:remember_token] = user.remember_token
 end
 
+def set_list_updated_at_ts_back(list)
+  list.updated_at = 30.seconds.ago
+  list.save!(validate: false)
+end
+
