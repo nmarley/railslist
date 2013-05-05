@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
     params[:item].delete(:list_id)
     @item = list.items.build(params[:item])
     if @item.save
-      List.update_all("updated_at = '#{0.seconds.ago}'", "id = '#{@item.list.id}'")
       flash[:success] = "Item created!"
       redirect_to list_path(list.id)
     else
