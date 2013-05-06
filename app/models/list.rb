@@ -11,4 +11,12 @@ class List < ActiveRecord::Base
   def feed
     Item.where("list_id = ?", id)
   end
+
+  def self.search(search)
+    if search
+      where('name like ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

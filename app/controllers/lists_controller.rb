@@ -30,13 +30,10 @@ class ListsController < ApplicationController
   end
 
   def index
-    @lists = List.paginate(page: params[:page])
-      .where("user_id = ?", current_user.id)
+    @lists = List.search(params[:search]).
+      paginate(page: params[:page]).
+      where("user_id = ?", current_user.id)
 
-    # ===============================
-    # responds to /lists as HTML,
-    #             /lists.json as JSON
-    # ===============================
     respond_to do |format|
       format.html
       format.json { render json: @lists }
