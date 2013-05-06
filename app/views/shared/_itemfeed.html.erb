@@ -1,6 +1,0 @@
-<% if @itemfeed_items.any? %>
-	<ol class="lists">
-		<%= render partial: 'shared/itemfeed_item', collection: @itemfeed_items %>
-	</ol>
-	<%= will_paginate @itemfeed_items %>
-<% end %>

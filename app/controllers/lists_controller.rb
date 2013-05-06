@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
   before_filter :signed_in_user
-  #before_filter :signed_in_user, only: [:index, :create, :destroy]
   before_filter :correct_user,   only: [:destroy, :edit, :update]
 
   def create
@@ -25,8 +24,11 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+
+    # for item form (which is displayed on lists page)
     @item = @list.items.build
-    @itemfeed_items = @list.feed.paginate(page: params[:page])
+
+    @items = @list.feed.paginate(page: params[:page])
   end
 
   def index

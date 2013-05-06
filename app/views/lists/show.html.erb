@@ -2,16 +2,39 @@
 <div class="row">
 	<aside class="span4">
     <section>
-      <%= render 'shared/list_info' %>
+      <h1>
+        <%= @list.name %>
+        <% if @list.private? %>
+          <i class="icon-lock"></i>
+        <% end %>
+      </h1>
+      <span>
+        <% if current_user?(@list.user) %>
+          <%= link_to "edit list", edit_list_path(@list.id) %>
+          <% if @list.items.count == 0 %>
+          <%= link_to "delete list", @list, method: :delete,
+                                            data: { confirm: "You sure?" },
+                                            title: @list.name %>
+          <% end %>
+        <% end %>
+      </span>
+      <span>
+        <%= pluralize(@list.items.count, "item") %>
+      </span>
     </section>
     <section>
       <% if signed_in? && (current_user.id == @list.user.id) %>
-        <%= render 'shared/item_form' %>
+        <%= render 'items/form' %>
       <% end %>
     </section>
   </aside>
 	<div class="span8">
   	<h3>Item Feed</h3>
-		<%= render 'shared/itemfeed' %>
+    <% if @items.any? %>
+      <ol class="lists">
+        <%= render partial: 'items/item', collection: @items %>
+      </ol>
+      <%= will_paginate @items %>
+    <% end %>
 	</div>
 </div>

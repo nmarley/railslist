@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  #before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :signed_in_user
   before_filter :correct_user,   only: [:destroy, :edit, :update]
 
@@ -34,8 +33,9 @@ class ItemsController < ApplicationController
       flash[:success] = "Item created!"
       redirect_to list_path(list.id)
     else
-      @itemfeed_items = []
-      render 'static_pages/home'
+      @items = []
+      @list = @item.list
+      render "lists/show"
     end
   end
 
