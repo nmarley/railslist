@@ -27,14 +27,13 @@ class ListsController < ApplicationController
 
     # for item form (which is displayed on lists page)
     @item = @list.items.build
-
     @items = @list.feed.paginate(page: params[:page])
   end
 
   def index
-    @lists = List.search(params[:search]).
-      paginate(page: params[:page]).
-      where("user_id = ?", current_user.id)
+    @lists = List.search(params[:search])
+      .where(user_id: current_user.id)
+      .paginate(page: params[:page])
 
     respond_to do |format|
       format.html
