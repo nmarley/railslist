@@ -32,7 +32,7 @@ describe List do
   end
 
   describe "with name that is too long" do
-    before { @list.name = "a" * 41 }
+    before { @list.name = "a" * 201 }
     it { should_not be_valid }
   end
 

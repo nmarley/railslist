@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :correct_user,   only: [:destroy, :edit, :update]
+  before_action :signed_in_user
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def new
   end
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update_attributes(params[:item])
+    if @item.update_attributes(item_params)
       flash[:success] = "Item updated!"
       redirect_to list_path(@item.list.id)
     else
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
       return
     end
     params[:item].delete(:list_id)
-    @item = list.items.build(params[:item])
+    @item = list.items.build(item_params)
     if @item.save
       flash[:success] = "Item created!"
       redirect_to list_path(list.id)
@@ -56,6 +56,16 @@ class ItemsController < ApplicationController
     if @item.list.user != current_user
       redirect_to root_url
     end
+  end
+
+  ## Use callbacks to share common setup or constraints between actions.
+  #def set_item
+  #  @item = Item.find(params[:id])
+  #end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:content)
   end
 
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
   has_many :lists, dependent: :destroy
+  has_many :items, through: :lists
 
   before_save { email.downcase! }
   before_save :create_remember_token

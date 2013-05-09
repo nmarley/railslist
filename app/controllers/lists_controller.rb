@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :correct_user,   only: [:destroy, :edit, :update]
+  before_action :signed_in_user
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def create
-    @list = current_user.lists.build(params[:list])
+    @list = current_user.lists.build(list_params)
     if @list.save
       flash[:success] = "List created!"
       redirect_to root_url
@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    if @list.update_attributes(params[:list])
+    if @list.update_attributes(list_params)
       flash[:success] = "List updated"
       redirect_to @list
     else
@@ -58,11 +58,9 @@ class ListsController < ApplicationController
     @list = current_user.lists.find_by_id(params[:id])
     redirect_to root_url if @list.nil?    
   end
-  # alternate implementation
-  # def correct_user
-  #   @list = current_user.lists.find(params[:id])
-  # rescue
-  #   redirect_to root_url
-  # end
+
+  def list_params
+    params.require(:list).permit(:name, :private)
+  end
 
 end
