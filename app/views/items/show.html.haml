@@ -1,0 +1,12 @@
+- provide(:title, "View item")
+%h1 View item
+
+.row
+  %div{class: "span6 offset3"}
+    = form_for(@item) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      = f.label :content
+      = f.text_area :content, readonly: true
+
+    = link_to "\u2190 Back to list", @item.list

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-#gem 'rails', '3.2.13'
 gem 'rails', '4.1.0.beta'
 gem 'pg', '0.15.1'
 
@@ -12,15 +11,11 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'rails_autolink', '1.0.10'
 gem 'foreigner', '1.4.1'
 gem 'immigrant', '0.1.4'
+gem 'haml', '4.0.2'
 
 #gem 'bootstrap-sass', '2.3.1.0'
 # 2.3.1 breaks CMD + click for open in new tab
 gem 'bootstrap-sass', '2.3.0.1'
-
-
-# migrating to rails 4
-#gem 'protected_attributes', '1.0.1'
-
 
 group :production do
   gem 'unicorn', '4.6.2'

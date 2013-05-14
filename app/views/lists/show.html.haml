@@ -1,0 +1,32 @@
+- provide(:title, @list.name)
+.row
+  %aside.span4
+    %section
+      %h1
+        = @list.name
+        - if @list.private?
+          %i.icon-lock
+
+      %span
+        - if current_user?(@list.user)
+          = link_to "edit list", edit_list_path(@list.id)
+          - if @list.items.count == 0
+            = link_to "delete list", @list, method: :delete,                |
+                                            data: { confirm: "You sure?" }, |
+                                            title: @list.name               |
+
+      %span
+        = pluralize(@list.items.count, "item")
+
+    %section
+      - if signed_in? && (current_user.id == @list.user.id)
+        = render 'items/form'
+
+  .span8
+    %h3 Item Feed
+
+    - if @items.any?
+      %ol.lists
+        = render partial: 'items/item', collection: @items
+      = will_paginate @items
+

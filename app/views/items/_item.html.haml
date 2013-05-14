@@ -1,0 +1,13 @@
+%li{id: "#{item.id}"}
+  %span.content
+    = auto_link( item.content, html: { target: '_blank' } )
+
+  %span.timestamp
+    Updated #{time_ago_in_words(item.updated_at)} ago.
+
+  = link_to "show", item
+  - if signed_in? && current_user?(item.list.user)
+    #{link_to "edit", edit_item_path(item.id)}
+    #{link_to "delete", item, method: :delete,                |
+                              data: { confirm: "You sure?" }, |
+                              title: item.content }           |
