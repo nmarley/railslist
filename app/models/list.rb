@@ -13,7 +13,7 @@ class List < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name like ?', "%#{search}%")
+      where('lower(name) like lower(?)', "%#{search}%")
     else
       all
     end
