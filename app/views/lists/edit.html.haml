@@ -10,7 +10,8 @@
       = f.text_field :name
 
       %span{style: "display: block; margin-bottom: 0.5em;"}
-        = f.label :private %><%= f.check_box :private
+        = f.label :private
+        = f.check_box :private
 
       = f.submit "Save changes", class: "btn btn-large btn-primary"
       = link_to "cancel", list_path(@list.id), class: "btn btn-info pull-right"
