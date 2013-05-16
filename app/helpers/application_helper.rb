@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
 
+  def app_home_link
+    "https://github.com/nmarley/railslist"
+  end
+
 end
