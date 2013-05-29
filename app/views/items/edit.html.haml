@@ -6,6 +6,9 @@
     = form_for(@item) do |f|
       = render 'shared/error_messages', object: f.object
 
+      = f.label :move_to_list
+      = f.collection_select :list_id, @item.list.user.lists, :id, :name
+
       = f.label :content
       = f.text_area :content
 

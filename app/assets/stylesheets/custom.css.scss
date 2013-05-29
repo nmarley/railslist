@@ -159,6 +159,10 @@ input, textarea, select, .uneditable-input {
     @include box_sizing;
 }
 
+select {
+    height: 3em;
+}
+
 input {
     height: auto !important;
 }
