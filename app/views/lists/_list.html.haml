@@ -10,7 +10,7 @@
     %span.timestamp
       Updated #{time_ago_in_words(list.updated_at)} ago.
 
-    - if signed_in? && current_user?(list.user) && list.items.count == 0
+    - if signed_in? && can?(:delete, list) && list.items.count == 0
       = link_to "delete", list, method: :delete, |
         data: { confirm: "You sure?" },          |
         title: list.name                         |

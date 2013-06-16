@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.0.beta'
 gem 'pg', '0.15.1'
+gem 'cancan', '1.6.10'
 
 gem 'jquery-rails', '2.2.1'
 gem 'bcrypt-ruby', '3.0.1'

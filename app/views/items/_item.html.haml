@@ -6,7 +6,7 @@
     Updated #{time_ago_in_words(item.updated_at)} ago.
 
   = link_to "show", item
-  - if signed_in? && current_user?(item.list.user)
+  - if signed_in? && can?(:update, item.list)
     #{link_to "edit", edit_item_path(item.id)}
     #{link_to "delete", item, method: :delete,                |
                               data: { confirm: "You sure?" }, |

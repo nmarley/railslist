@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :signed_in_user
-  before_action :correct_user,   only: [:destroy, :edit, :update]
+  before_action :set_list,   only: [:show, :destroy, :edit, :update]
 
   def create
     @list = current_user.lists.build(list_params)
@@ -14,6 +14,7 @@ class ListsController < ApplicationController
   end
 
   def update
+    authorize! :update, @list
     if @list.update_attributes(list_params)
       flash[:success] = "List updated"
       redirect_to @list
@@ -23,8 +24,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
-
     # for item form (which is displayed on lists page)
     @item = @list.items.build
     @items = @list.feed.paginate(page: params[:page])
@@ -42,6 +41,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    authorize! :delete, @list
     if @list.items.any?
       flash[:error] = 'Cannot delete a list with items.'
     else
@@ -51,12 +51,12 @@ class ListsController < ApplicationController
   end
 
   def edit
+    authorize! :update, @list
   end
 
   private
-  def correct_user
-    @list = current_user.lists.find_by_id(params[:id])
-    redirect_to root_url if @list.nil?    
+  def set_list
+    @list = List.find(params[:id])
   end
 
   def list_params

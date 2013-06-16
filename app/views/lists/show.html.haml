@@ -8,9 +8,9 @@
           %i.icon-lock
 
       %span
-        - if current_user?(@list.user)
+        - if can?(:update, @list)
           = link_to "edit list", edit_list_path(@list.id)
-          - if @list.items.count == 0
+          - if @list.items.count == 0 && can?(:delete, @list)
             = link_to "delete list", @list, method: :delete,                |
                                             data: { confirm: "You sure?" }, |
                                             title: @list.name               |
@@ -19,7 +19,7 @@
         = pluralize(@list.items.count, "item")
 
     %section
-      - if signed_in? && (current_user.id == @list.user.id)
+      - if signed_in? && can?(:update, @list)
         = render 'items/form'
 
   .span8
