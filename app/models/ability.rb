@@ -16,7 +16,7 @@ class Ability
       !perm.nil? && perm.permission == 'w'
     end
 
-    can :read List do |list|
+    can :read, List do |list|
       perm = UserListPermission.where(user_id: user.id,
                                       list_id: list.id).first
       !perm.nil? && perm.permission == 'r'

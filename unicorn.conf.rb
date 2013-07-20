@@ -7,7 +7,7 @@
 # a more verbose configuration using more features.
 
 # start server with:
-# bundle exec unicorn -c unicorn.conf.rb -E development
+# bundle exec unicorn -c unicorn.conf.rb -E production -D
 
 #listen 7007 # by default Unicorn listens on port 8080
 listen "/tmp/unicorn.sock"
