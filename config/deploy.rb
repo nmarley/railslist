@@ -1,5 +1,7 @@
 #require 'capistrano/ext/multistage'
 
+default_run_options[:env] = {'PATH' => '/opt/ruby/bin:$PATH'}
+
 set :application, "rails_list"
 
 set :scm, :git
@@ -7,6 +9,7 @@ set :repository,  "gitolite@blackcarrot.be:railslist"
 set :scm_passphrase, ""
 
 set :user, "nmarley"
+set :use_sudo, false
 
 #set :stages, %w[staging production]
 #set :default_stage, "staging"
@@ -34,7 +37,9 @@ namespace :deploy do
     run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    graceful_stop
+    if File.exists? unicorn_pid
+      graceful_stop
+    end
     start
   end
 end

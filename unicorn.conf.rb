@@ -12,7 +12,7 @@
 #listen 7007 # by default Unicorn listens on port 8080
 listen "/tmp/unicorn.sock"
 worker_processes 8 # this should be >= nr_cpus
-approot = "/var/www/railslist"
+approot = "/var/www/railslist/current"
 pid "#{approot}/tmp/pids/unicorn.pid"
 stderr_path "#{approot}/log/unicorn.log"
 stdout_path "#{approot}/log/unicorn.log"
