@@ -1,4 +1,5 @@
 #require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
 
 default_run_options[:env] = {'PATH' => '/opt/ruby/bin:$PATH'}
 
