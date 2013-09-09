@@ -13,3 +13,5 @@
       = f.text_area :content
 
       = f.submit "Save changes", class: "btn btn-large btn-primary"
+
+    = render partial: "list_link", locals: {item: @item}

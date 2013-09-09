@@ -13,4 +13,4 @@
       = f.label :content
       = f.text_area :content, readonly: true
 
-    = link_to "\u2190 Back to list", @item.list
+    = render partial: "list_link", locals: {item: @item}
