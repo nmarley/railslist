@@ -5,7 +5,7 @@ gem 'pg', '0.15.1'
 gem 'cancan', '1.6.10'
 
 gem 'jquery-rails', '2.2.1'
-gem 'bcrypt-ruby', '3.1.0'
+gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
@@ -13,7 +13,10 @@ gem 'rails_autolink', '1.0.10'
 gem 'foreigner', '1.4.1'
 gem 'immigrant', '0.1.4'
 gem 'haml', '4.0.2'
-gem 'bootstrap-sass', '2.3.2.1'
+
+#gem 'bootstrap-sass', '2.3.1.0'
+# 2.3.1 breaks CMD + click for open in new tab
+gem 'bootstrap-sass', '2.3.0.1'
 
 group :production do
   gem 'unicorn', '4.6.2'
