@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130611044718) do
+ActiveRecord::Schema.define(version: 20130910002445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingredients", ["name"], name: "index_ingredients_on_name", unique: true, using: :btree
 
   create_table "items", force: true do |t|
     t.text     "content"
@@ -33,6 +41,23 @@ ActiveRecord::Schema.define(version: 20130611044718) do
 
   add_index "lists", ["user_id", "created_at"], name: "index_lists_on_user_id_and_created_at", using: :btree
 
+  create_table "recipe_ingredients", force: true do |t|
+    t.integer "recipe_id",     null: false
+    t.integer "ingredient_id", null: false
+    t.string  "amount"
+  end
+
+  add_index "recipe_ingredients", ["ingredient_id", "recipe_id"], name: "index_recipe_ingredients_on_ingredient_id_and_recipe_id", unique: true, using: :btree
+
+  create_table "recipes", force: true do |t|
+    t.string   "name"
+    t.text     "instructions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipes", ["name"], name: "index_recipes_on_name", unique: true, using: :btree
+
   create_table "user_list_permissions", force: true do |t|
     t.integer  "user_id"
     t.integer  "list_id"
@@ -46,7 +71,7 @@ ActiveRecord::Schema.define(version: 20130611044718) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email"
+    t.string   "email",           default: ""
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "password_digest"
