@@ -25,4 +25,8 @@ FactoryGirl.define do
     instructions "Heat the oil in a wok. Add all ingredients into wok. Cook everything, then eat."
   end
 
+  factory :ingredient do
+    name "sweet potato"
+  end
+
 end
