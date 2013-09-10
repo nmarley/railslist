@@ -3,6 +3,7 @@ GEM
   specs:
     actionmailer (4.1.0.beta)
       actionpack (= 4.1.0.beta)
+      actionview (= 4.1.0.beta)
       mail (~> 2.5.4)
     actionpack (4.1.0.beta)
       activesupport (= 4.1.0.beta)
@@ -184,6 +185,7 @@ DEPENDENCIES
   haml (= 4.0.2)
   immigrant (= 0.1.4)
   jquery-rails
+  minitest (~> 5.0.0)
   pg (= 0.15.1)
   rails (= 4.1.0.beta)
   rails_autolink (= 1.0.10)
