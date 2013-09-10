@@ -1,0 +1,23 @@
+<%= form_for(@recipe) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%# f.??? %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructions %><br>
+    <%= f.text_area :instructions %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit value: "Update", class: "btn btn-large btn-primary" %>
+  </div>
+
+<% end %>
