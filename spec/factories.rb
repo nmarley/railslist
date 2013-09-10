@@ -19,4 +19,10 @@ FactoryGirl.define do
     name "Ispo facto meeny moe... MAGICO!"
     list
   end
+
+  factory :recipe do
+    name "Sweet Lemon Thai Basil Curry"
+    instructions "Heat the oil in a wok. Add all ingredients into wok. Cook everything, then eat."
+  end
+
 end
