@@ -1,0 +1,17 @@
+
+@import url(http://fonts.googleapis.com/css?family=Cinzel);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,600,400italic,600italic);
+@import url(http://fonts.googleapis.com/css?family=Sacramento);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+.recipe {
+  h1, h3 {
+    //font-family: 'Sacramento', cursive;
+    //font-family: 'Cinzel', serif;
+    font-family: 'Josefin Slab', serif;
+  }
+  p, li {
+    //font-family: 'Cinzel', serif;
+    font-family: 'Open Sans', sans-serif;
+  }
+}

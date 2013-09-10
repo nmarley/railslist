@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :sessions,   only: [:new, :create, :destroy]
   resources :lists
   resources :items
+  resources :recipes
+  #resources :ingredients
 
   get   '/signup',  to: 'users#new'
   get   '/signin',  to: 'sessions#new'
