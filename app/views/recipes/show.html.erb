@@ -9,11 +9,7 @@
   <section>
   <h3>Ingredients</h3>
   <ul>
-    <% @recipe.recipe_ingredients.each do |ri| %>
-      <li>
-        <%= ri.amount %>&nbsp;<%= ri.ingredient.name %>
-      </li>
-    <% end %>
+      <%= render partial: "recipe_ingredient", collection: @recipe.recipe_ingredients %>
   </ul>
   </section>
 

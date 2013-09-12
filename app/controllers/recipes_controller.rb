@@ -9,11 +9,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     respond_to do |format|
       if @recipe.save
-        format.html { 
+        format.html {
           flash[:success] = "Recipe created!"
-          redirect_to root_url
+          redirect_to recipes_url
         }
-        format.json { 
+        format.json {
           render action: 'show', status: :created, location: @recipe
         }
       else
