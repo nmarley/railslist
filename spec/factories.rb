@@ -10,11 +10,6 @@ FactoryGirl.define do
     end
   end
 
-  #factory :micropost do
-  #  content "Lorum ipsum"
-  #  user
-  #end
-
   factory :list do
     name "Lorum ipsum"
     user
