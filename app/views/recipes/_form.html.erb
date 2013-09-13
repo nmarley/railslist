@@ -7,9 +7,16 @@
   </div>
 
   <div class="field">
+    <!-- convert list of ingreds/amounts to a text area here (use a helper?) -->
     <%= f.label :ingredients %>
-    <%# f.??? %>
+    <%= f.text_area :something %>
   </div>
+<!--
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%= render partial: "recipe_ingredient", collection: @recipe.recipe_ingredients %>
+  </div>
+  -->
 
   <div class="field">
     <%= f.label :instructions %><br>
