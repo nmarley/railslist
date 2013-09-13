@@ -32,15 +32,13 @@ namespace :deploy do
     run "kill -s TERM `cat #{unicorn_pid}`"
   end
   task :graceful_stop, :roles => :app, :except => { :no_release => true } do
-    run "kill -s QUIT `cat #{unicorn_pid}`"
+    run "test -f #{unicorn_pid} && kill -s QUIT `cat #{unicorn_pid}`"
   end
   task :reload, :roles => :app, :except => { :no_release => true } do
     run "kill -s USR2 `cat #{unicorn_pid}`"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    if File.exists? unicorn_pid
-      graceful_stop
-    end
+    graceful_stop
     start
   end
 end
