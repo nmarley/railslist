@@ -1,16 +1,16 @@
 - provide(:title, "View item")
-%h1 View item
+%h4 View item
 
 .row
-  .list{class: "span6 offset3", style: "margin-bottom: 2em"}
+  %div{class: "span12"}
     Current List: 
     %strong= @item.list.name
+    %p
 
-  %div{class: "span6 offset3"}
     = form_for(@item) do |f|
       = render 'shared/error_messages', object: f.object
 
       = f.label :content
-      = f.text_area :content, readonly: true
+      = f.text_area :content, readonly: true, rows: 14
 
     = render partial: "list_link", locals: {item: @item}
