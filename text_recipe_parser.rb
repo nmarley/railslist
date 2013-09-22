@@ -1,6 +1,24 @@
 
 require 'pp'
 
+class Ingredients
+  def parse(data)
+    ingredients_re = /^\s*\*\s*(.*$)/
+    ingreds = []
+    data.scan(ingredients_re) do |match|
+      ingreds << match[0]
+    end
+    data.gsub!(ingredients_re, '')
+
+    @ingredients = []
+    ingreds.each do |i|
+      m = i.match(/^([\d\/\&\-\ ]+\ \w+)\s+(.*)$/)
+      @ingredients << m[1, 2]
+    end
+  end
+end
+
+
 class TextRecipe
   attr_reader :title, :ingredients, :instructions
 
@@ -31,10 +49,10 @@ class TextRecipe
   end
 end
 
-data = File.read("recipe.md")
-r = TextRecipe.new(data)
+#data = File.read("recipe.md")
+#r = TextRecipe.new(data)
 
-p r.title
-p r.ingredients
-p r.instructions
+#p r.title
+#p r.ingredients
+#p r.instructions
 
