@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_recipe, only: [:show, :destroy, :edit, :update]
 
   def new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130910002445) do
+ActiveRecord::Schema.define(version: 20130925002248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20130910002445) do
   create_table "items", force: true do |t|
     t.text     "content"
     t.integer  "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "acl",        default: ""
   end
 
   create_table "lists", force: true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130910002445) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "private",    default: false
+    t.string   "acl",        default: ""
   end
 
   add_index "lists", ["user_id", "created_at"], name: "index_lists_on_user_id_and_created_at", using: :btree
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20130910002445) do
     t.text     "instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "ingredients"
   end
 
   add_index "recipes", ["name"], name: "index_recipes_on_name", unique: true, using: :btree

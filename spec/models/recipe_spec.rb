@@ -21,4 +21,10 @@ describe Recipe do
     it { should_not be_valid }
   end
 
+  describe "when ingredients list is empty" do
+    before { @recipe.ingredients = " " }
+    it { should_not be_valid }
+  end
+
+
 end
