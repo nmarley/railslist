@@ -10,7 +10,7 @@
     </span>
 
     <span class="timestamp">
-      Updated #{time_ago_in_words(list.updated_at)} ago.
+      Updated <%= time_ago_in_words(list.updated_at) %> ago.
     </span>
 
     <% if signed_in? && can?(:delete, list) && list.items.count == 0 %>
