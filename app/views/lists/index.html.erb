@@ -1,0 +1,10 @@
+<% provide(:title, 'My lists') %>
+<h1>My lists</h1>
+
+<%= will_paginate %>
+
+<ul class="lists">
+  <%= render @lists %>
+</ul>
+
+<%= will_paginate %>

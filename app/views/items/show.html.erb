@@ -1,0 +1,19 @@
+<% provide(:title, "View item") %>
+<h4>View item</h4>
+
+<div class="row">
+  <div class="span12">
+    Current List: 
+    <strong><%= @item.list.name %></strong>
+    <p/>
+
+    <%= form_for(@item) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :content %>
+      <%= f.text_area :content, readonly: true, rows: 14 %>
+
+    <% end %>
+    <%= render partial: "list_link", locals: {item: @item} %>
+  </div>
+</div>

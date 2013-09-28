@@ -1,0 +1,20 @@
+<% provide(:title, "Edit item") %>
+<h4>Update item</h4>
+
+<div class="row">
+  <div class="span12">
+    <%= form_for(@item) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :move_to_list %>
+      <%= f.collection_select :list_id, @item.list.user.lists, :id, :name %>
+
+      <%= f.label :content %>
+      <%= f.text_area :content, rows: 14 %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+
+    <% end %>
+    <%= render partial: "list_link", locals: {item: @item} %>
+  </div>
+</div>
