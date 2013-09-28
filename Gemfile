@@ -12,7 +12,6 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'rails_autolink', '1.0.10'
 gem 'foreigner', '1.4.1'
 gem 'immigrant', '0.1.4'
-gem 'haml', '4.0.2'
 gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.1.0'
 
