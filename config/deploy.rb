@@ -1,6 +1,6 @@
 #require 'capistrano/ext/multistage'
-require 'bundler/capistrano'
-set :bundle_flags, "--local"
+#require 'bundler/capistrano'
+#set :bundle_flags, "--local"
 
 default_run_options[:env] = {'PATH' => '/opt/ruby/bin:$PATH'}
 
