@@ -1,6 +1,6 @@
 
 <div class="recipe">
-  <h1><%= @recipe.name %>
+  <h1><%= raw Redcarpet::Render::SmartyPants.render(@recipe.name) %>
     <% if can?(:edit, @recipe) %>
       <small><%= link_to "edit", edit_recipe_path(@recipe) %></small>
     <% end %>

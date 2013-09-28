@@ -14,7 +14,7 @@ gem 'foreigner', '1.4.1'
 gem 'immigrant', '0.1.4'
 gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.1.0'
-
+gem 'redcarpet', '~> 3.0.0'
 
 gem 'bootstrap-sass', '2.3.0.1'
 
@@ -28,8 +28,8 @@ end
 
 group :development do
   gem 'annotate', '2.5.0'
-  gem 'thin', '1.5.1'
-  #gem 'puma'
+  gem 'puma'
+  gem 'log_buddy'
 end
 
 group :test do
