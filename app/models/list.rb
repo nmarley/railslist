@@ -9,7 +9,7 @@ class List < ActiveRecord::Base
   default_scope -> { order('lists.updated_at DESC') }
 
   def feed
-    Item.where(list_id: id)
+    items
   end
 
   def self.search(search)
