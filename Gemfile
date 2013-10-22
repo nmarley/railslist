@@ -25,14 +25,12 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
-  gem 'bullet'
 end
 
 group :development do
   gem 'annotate', '2.5.0'
   gem 'puma'
   gem 'log_buddy'
-  gem 'rack-mini-profiler'
 end
 
 group :test do
