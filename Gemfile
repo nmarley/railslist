@@ -15,6 +15,7 @@ gem 'immigrant', '0.1.4'
 gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redcarpet', '~> 3.0.0'
+gem 'paperclip'
 
 gem 'bootstrap-sass', '2.3.0.1'
 
