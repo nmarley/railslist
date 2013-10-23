@@ -4,3 +4,8 @@
 * add an "undo" action to item deletes
 
 * use s3 storage for files
+
+* tests. lots of tests.
+
+* minitest
+
