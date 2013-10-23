@@ -31,10 +31,13 @@
     </section>
 
     <section>
-    Files list:
-      <ul>
-        <%= render @list.attachments %>
-      </ul>
+    <% attachments = @list.attachments %>
+    <% if attachments.size > 0 %>
+      Files list:
+        <ul>
+          <%= render attachments %>
+        </ul>
+    <% end %>
       <% if signed_in? && can?(:update, @list) %>
         <%= render 'attachments/form' %>
       <% end %>
