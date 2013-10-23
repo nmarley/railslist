@@ -1,9 +1,6 @@
 
-* update list updated_at timestamp when an item is added to the list
--- done, 2013-04-14
--- re-implemented via Item#belongs_to :list, touch: true, 2013-05-08
-
 * shared lists (one of the main used functions)
 
 * add an "undo" action to item deletes
 
+* use s3 storage for files
