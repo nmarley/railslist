@@ -1,0 +1,10 @@
+<%= form_for([@list, @list.attachments.build], html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :attachment %>
+    <%= f.file_field :media %>
+  </div>
+
+  <%= f.submit "Add Attachment", class: "btn btn-large btn-primary" %>
+<% end %>

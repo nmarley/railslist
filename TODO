@@ -5,3 +5,5 @@
 
 * shared lists (one of the main used functions)
 
+* add an "undo" action to item deletes
+

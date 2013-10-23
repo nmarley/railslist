@@ -23,9 +23,20 @@
       </span>
 
     </section>
+
     <section>
       <% if signed_in? && can?(:update, @list) %>
         <%= render 'items/form' %>
+      <% end %>
+    </section>
+
+    <section>
+    Files list:
+      <ul>
+        <%= render @list.attachments %>
+      </ul>
+      <% if signed_in? && can?(:update, @list) %>
+        <%= render 'attachments/form' %>
       <% end %>
     </section>
 

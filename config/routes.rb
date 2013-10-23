@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
-  resources :lists
+  resources :lists do
+    resources :attachments
+  end
   resources :items
   resources :recipes
   #resources :ingredients
