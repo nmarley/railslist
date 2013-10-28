@@ -1,5 +1,7 @@
 <li>
   <%= link_to attachment.media_file_name,
       list_attachment_path(attachment.list.id, attachment.id) %>
-  <%= link_to "delete", list_attachment_path(attachment.list.id, attachment.id), method: :delete, data: { confirm: "You sure?" }, class: "muted" %>
+  <% if signed_in? && can?(:update, @list) %>
+    <%= link_to "delete", list_attachment_path(attachment.list.id, attachment.id), method: :delete, data: { confirm: "You sure?" }, class: "muted" %>
+  <% end %>
 </li>

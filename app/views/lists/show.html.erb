@@ -24,24 +24,26 @@
 
     </section>
 
-    <section>
-      <% if signed_in? && can?(:update, @list) %>
+    <% if signed_in? && can?(:update, @list) %>
+      <section>
         <%= render 'items/form' %>
-      <% end %>
-    </section>
-
-    <section>
-    <% attachments = @list.attachments %>
-    <% if attachments.size > 0 %>
-      Files list:
-        <ul>
-          <%= render attachments %>
-        </ul>
+      </section>
     <% end %>
+
+    <% attachments = @list.attachments %>
+    <% if attachments.size > 0 || can?(:update, @list) %>
+      <section>
+      <% if attachments.size > 0 %>
+        Files list:
+          <ul>
+            <%= render attachments %>
+          </ul>
+      <% end %>
       <% if signed_in? && can?(:update, @list) %>
         <%= render 'attachments/form' %>
       <% end %>
-    </section>
+      </section>
+    <% end %>
 
   </aside>
   <div class="span8">
