@@ -18,13 +18,6 @@ describe Item do
 
   it { should be_valid }
 
-  describe "accessible attributes" do
-    it "should not allow access to list_id" do
-      expect do
-        Item.new(list_id: @list.id)
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
 
   describe "when list_id is not present" do
     before { @item.list_id = nil }

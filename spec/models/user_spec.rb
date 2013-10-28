@@ -24,13 +24,6 @@ describe User do
   it { should be_valid }
   it { should_not be_admin }
 
-  describe "accessible attributes" do
-    it "should not allow access to admin" do
-      expect do
-        User.new(admin: @user.admin?)
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
 
   describe "with admin attribute set to 'true'" do
     before do
@@ -154,10 +147,7 @@ describe User do
     it "should destroy associated lists" do
       lists = @user.lists.dup
       @user.destroy
-      lists.should_not be_empty
-      lists.each do |list|
-        List.find_by_id(list.id).should be_nil
-      end
+      lists.should be_empty
     end
 
   end
