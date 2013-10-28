@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.5)
     annotate (2.5.0)
       rake
     arel (5.0.0)
@@ -82,6 +83,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.8.1)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     log_buddy (0.7.0)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -198,6 +201,7 @@ DEPENDENCIES
   foreigner (= 1.4.1)
   immigrant (= 0.1.4)
   jquery-rails
+  launchy
   log_buddy
   minitest (~> 5.0)
   paperclip

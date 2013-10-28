@@ -35,6 +35,9 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
 
+      # save_and_open_page
+      # puts page.body
+      # binding.pry
       it { should have_selector('title', text: user.name) }
 
       it { should have_link('Users',     href: users_path) }
