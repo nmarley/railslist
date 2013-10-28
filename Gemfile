@@ -16,7 +16,6 @@ gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redcarpet', '~> 3.0.0'
 gem 'paperclip'
-gem 'pry'
 
 gem 'bootstrap-sass', '2.3.0.1'
 
@@ -26,6 +25,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
+  gem 'pry'
 end
 
 group :development do
