@@ -21,13 +21,14 @@ set :deploy_to, "/var/www/railslist"
 
 # TODO: use multistage
 set :rails_env, :production
-set :unicorn_binary, "/opt/ruby/bin/unicorn"
+# set :unicorn_binary, "/opt/ruby/bin/unicorn"
+set :unicorn_cmd, "bundle exec unicorn"
 set :unicorn_config, "#{current_path}/unicorn.conf.rb"
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+    run "cd #{current_path} && #{unicorn_cmd} -c #{unicorn_config} -E #{rails_env} -D"
   end
   task :stop, :roles => :app, :except => { :no_release => true } do
     run "kill -s TERM `cat #{unicorn_pid}`"
