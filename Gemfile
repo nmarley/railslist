@@ -20,7 +20,7 @@ gem 'paperclip'
 gem 'bootstrap-sass', '2.3.0.1'
 
 group :production do
-  gem 'unicorn', '4.6.2'
+  gem 'unicorn', '~> 4.6.2'
 end
 
 group :development, :test do
