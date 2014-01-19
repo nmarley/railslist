@@ -18,6 +18,7 @@ set :use_sudo, false
 
 server "blackcarrot.be", :app, :web, :db, :primary => true
 set :deploy_to, "/var/www/railslist"
+set :bundle_without, [:development, :test] # only bundle prod gems
 
 # TODO: use multistage
 set :rails_env, :production
