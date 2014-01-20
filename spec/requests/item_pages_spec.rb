@@ -32,6 +32,19 @@ describe "Item pages" do
         expect { click_button "Post" }.to change(Item, :count).by(1)
       end
     end
+
+    describe "with link text" do
+      before do
+        link_text = "my favorite site is: http://www.google.com/ ... yeah!"
+        fill_in 'item_content', with: link_text
+      end
+
+      it "should create an item with hyperlinked text" do
+        click_button "Post"
+        # someone please enlighten me on how to do this with rspec/capybara
+        assert page.html.match('my favorite site is: <a href="http://www.google.com/" target="_blank">http://www.google.com/</a> ... yeah!')
+      end
+    end
   end
 
 end
