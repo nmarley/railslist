@@ -16,12 +16,8 @@ gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem 'redcarpet', '~> 3.0.0'
 gem 'paperclip'
-
 gem 'bootstrap-sass', '2.3.0.1'
-
-group :production do
-  gem 'unicorn', '~> 4.6.2'
-end
+gem 'puma', '~> 2.7'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
@@ -30,7 +26,6 @@ end
 
 group :development do
   gem 'annotate', '2.5.0'
-  gem 'puma'
   gem 'log_buddy'
 end
 

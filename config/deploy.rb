@@ -22,23 +22,23 @@ set :bundle_without, [:development, :test] # only bundle prod gems
 
 # TODO: use multistage
 set :rails_env, :production
-# set :unicorn_binary, "/opt/ruby/bin/unicorn"
-set :unicorn_cmd, "bundle exec unicorn"
-set :unicorn_config, "#{current_path}/unicorn.conf.rb"
-set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
+# set :puma_binary, "/opt/ruby/bin/puma"
+set :puma_cmd, "bundle exec puma"
+set :puma_config, "#{current_path}/config/puma.rb"
+set :puma_pid, "#{current_path}/tmp/pids/puma.pid"
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && #{unicorn_cmd} -c #{unicorn_config} -E #{rails_env} -D"
+    run "cd #{current_path} && #{puma_cmd} -C #{puma_config}"
   end
   task :stop, :roles => :app, :except => { :no_release => true } do
-    run "kill -s TERM `cat #{unicorn_pid}`"
+    run "test -f #{puma_pid} && kill -s TERM `cat #{puma_pid}`"
   end
   task :graceful_stop, :roles => :app, :except => { :no_release => true } do
-    run "test -f #{unicorn_pid} && kill -s QUIT `cat #{unicorn_pid}`"
+    run "test -f #{puma_pid} && kill -s QUIT `cat #{puma_pid}`"
   end
   task :reload, :roles => :app, :except => { :no_release => true } do
-    run "kill -s USR2 `cat #{unicorn_pid}`"
+    run "kill -s USR2 `cat #{puma_pid}`"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     graceful_stop
