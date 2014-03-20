@@ -1,6 +1,8 @@
 
 * shared lists (one of the main used functions)
 
+* open-source this for real
+
 * add an "undo" action to item deletes
 
 * use s3 storage for files
@@ -8,4 +10,8 @@
 * tests. lots of tests.
 
 * minitest
+
+* rspec?
+
+* (admin?) settings to turn on/off new user registrations
 
