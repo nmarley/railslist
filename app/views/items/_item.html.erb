@@ -11,5 +11,6 @@
   <% if signed_in? && can?(:update, item.list) %>
     <%= link_to "edit", edit_item_path(item.id) %>
     <%= link_to "delete", item, method: :delete, data: { confirm: "You sure?" }, title: item.content %>
+    <%= link_to "bump", bump_item_path(item), method: :put %>
   <% end %>
 </li>

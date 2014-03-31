@@ -45,6 +45,16 @@ describe "Item pages" do
         assert page.html.match('my favorite site is: <a href="http://www.google.com/" target="_blank">http://www.google.com/</a> ... yeah!')
       end
     end
+
+    # describe "clicking bump button" do
+    #   before do
+    #     ...
+    #   end
+    #   click_button "Bump"
+    #   it "should ..." do
+    #     assert something
+    #   end
+    # end
   end
 
 end

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :signed_in_user
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :bump]
   #before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def new
@@ -8,6 +8,12 @@ class ItemsController < ApplicationController
 
   def edit
     authorize! :update, @item.list
+  end
+
+  def bump
+    authorize! :update, @item.list
+    @item.touch
+    redirect_to list_path(@item.list.id)
   end
 
   def show

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :recipes
   #resources :ingredients
 
+  put '/items/:id/bump', to: 'items#bump', as: 'bump_item'
+
   get   '/signup',  to: 'users#new'
   get   '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
