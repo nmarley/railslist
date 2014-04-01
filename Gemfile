@@ -22,6 +22,7 @@ gem 'puma', '~> 2.7'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
   gem 'pry'
+  gem 'timecop', require: false
 end
 
 group :development do
