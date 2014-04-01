@@ -7,10 +7,12 @@
     Updated <%= time_ago_in_words(item.updated_at) %> ago.
   </span>
 
-  <%= link_to "show", item %>
+  <span class="row">
+  <%= link_to image_tag("1396330035_file_search.png", alt: "show"), item, class: 'icon' %>
   <% if signed_in? && can?(:update, item.list) %>
-    <%= link_to "edit", edit_item_path(item.id) %>
-    <%= link_to "delete", item, method: :delete, data: { confirm: "You sure?" }, title: item.content %>
-    <%= link_to "bump", bump_item_path(item), method: :put %>
+    <%= link_to image_tag("1396327101_file_edit.png", alt: "edit"), edit_item_path(item.id), class: 'icon' %>
+    <%= link_to image_tag("1396329940_file_delete.png", alt: "delete"), item, method: :delete, data: { confirm: "You sure?" }, title: item.content, class: 'icon' %>
+    <%= link_to image_tag("bump.png", alt: "edit"), bump_item_path(item), method: :put, class: 'icon' %>
   <% end %>
+  </span>
 </li>
