@@ -8,12 +8,9 @@ describe "Item pages" do
   before { sign_in user }
 
   describe "item creation" do
-    # TODO: this should be a create_list test helper
     before do
       list_name = "Lorem Ipsum"
-      visit root_path
-      fill_in 'list_name', with: list_name
-      click_button "Post"
+      create_list list_name
       click_link list_name
     end
 

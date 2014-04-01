@@ -11,12 +11,12 @@ FactoryGirl.define do
   end
 
   factory :list do
-    name "Lorum ipsum"
+    name "Garden Seed Wish List for #{Date.today.year}"
     user
   end
 
   factory :item do
-    name "Ispo facto meeny moe... MAGICO!"
+    content "An Item - Tomato Seeds"
     list
   end
 

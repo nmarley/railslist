@@ -14,3 +14,13 @@ def set_list_updated_at_ts_back(list)
   list.save!(validate: false)
 end
 
+def create_list(list_name)
+  visit root_path
+  fill_in 'list_name', with: list_name
+  click_button "Post"
+end
+
+def create_item(item_content)
+  fill_in 'item_content', with: item_content
+  click_button "Post"
+end
