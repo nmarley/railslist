@@ -8,7 +8,7 @@ describe "Attachment pages" do
 
   describe "attachment creation" do
     before do
-      list_name = "Lorem Ipsum"
+      list_name = "Grocery list"
       Timecop.freeze(1.hour.ago) do
         create_list list_name
       end

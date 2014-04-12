@@ -8,7 +8,7 @@ describe "Item pages" do
 
   describe "item creation" do
     before do
-      list_name = "Lorem Ipsum"
+      list_name = "Grocery list"
       create_list list_name
       click_link list_name
     end
@@ -24,7 +24,7 @@ describe "Item pages" do
     end
 
     describe "with valid information" do
-      before { fill_in 'item_content', with: "Lorem Ipsum" }
+      before { fill_in 'item_content', with: "Organic Kale" }
       it "should create an item" do
         expect { click_button "Post" }.to change(Item, :count).by(1)
       end

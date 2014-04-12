@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe List do
   let(:user) { FactoryGirl.create(:user) }
-  before { @list = user.lists.build(name: "Lorem ipsum") }
+  before { @list = user.lists.build(name: "Grocery list") }
 
   subject { @list }
 

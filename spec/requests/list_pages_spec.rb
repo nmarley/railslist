@@ -18,7 +18,7 @@ describe "List pages" do
       end
     end
     describe "with valid information" do
-      before { fill_in 'list_name', with: "Lorem Ipsum" }
+      before { fill_in 'list_name', with: "Grocery list" }
       it "should create a list" do
         expect { click_button "Post" }.to change(List, :count).by(1)
       end
@@ -47,7 +47,7 @@ describe "List pages" do
 #      let(:i1) { list.items.build(FactoryGirl.create(:item)) }
 #      let(:i2) { list.items.build(FactoryGirl.create(:item)) }
 #    end
-#    
+#
 #  end
 
 end

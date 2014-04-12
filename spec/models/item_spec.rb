@@ -4,9 +4,9 @@ describe Item do
   let!(:user) { FactoryGirl.create(:user) }
 
   before do
-    @list = user.lists.build(name: "Lorem Impsum")
+    @list = user.lists.build(name: "Grocery list")
     @list.save!
-    @item = @list.items.build(content: "Ispo facto meeny moe")
+    @item = @list.items.build(content: "Organic Kale")
   end
 
   subject { @item }
