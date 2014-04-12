@@ -29,4 +29,11 @@ FactoryGirl.define do
     name "sweet potato"
   end
 
+  factory :attachment do
+    media_file_name "README.txt"
+    media_content_type "text/plain"
+    media_file_size 1071
+    list
+  end
+
 end
