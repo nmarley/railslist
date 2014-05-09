@@ -1,4 +1,7 @@
 
+* break files out into their own thing (NOT a part of lists)
+  - files should have their own big page
+
 * shared lists (one of the main used functions)
 
 * open-source this for real
