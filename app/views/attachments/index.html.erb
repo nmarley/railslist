@@ -1,13 +1,23 @@
 <% provide(:title, 'My files') %>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="span7">
+    <h3>My Files</h3>
 
-<h3>My Files</h3>
+    <%= will_paginate %>
 
-<%= will_paginate %>
+    <ul class="attachments">
+      <%= render @attachments %>
+    </ul>
 
-<ul class="attachments">
-  <%= render @attachments %>
-</ul>
+    <%= will_paginate %>
 
-<%= will_paginate %>
+  </div>
+
+  <div class="span4 offset1">
+    <h3>Add New File...</h3>
+    <%= render 'form' %>
+  </div>
+
+</div>
+
