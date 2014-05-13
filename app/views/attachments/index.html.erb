@@ -1,0 +1,11 @@
+<% provide(:title, 'My files') %>
+
+<h3>My Files</h3>
+
+<%= will_paginate %>
+
+<ul class="attachments">
+  <%= render @attachments %>
+</ul>
+
+<%= will_paginate %>
