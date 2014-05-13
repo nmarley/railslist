@@ -3,30 +3,29 @@ class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :destroy]
 
   def index
-    # authorize! :read, @attachment.list
+    # authorize! :read, user.attachments
     @attachments = current_user.attachments.most_recent_first.paginate(page: params[:page])
   end
 
   def show
-    # authorize! :read, @attachment.list
+    # authorize! :read, user.attachments
     send_file @attachment.media.path, type: @attachment.media_content_type,
       disposition: "inline"
   end
 
   def create
-    @list = List.find(params[:list_id])
-    authorize! :update, @list
-    @attachment = @list.attachments.create(attachment_params)
-    redirect_to list_path(@list)
+    @user = User.find(params[:user_id])
+    # authorize! :update, @user
+    @attachment = @user.attachments.create(attachment_params)
+    redirect_to user
   end
 
   def destroy
-    list = @attachment.list
-    authorize! :delete, list
+    user = @attachment.user
+    authorize! :delete, @attachment
     @attachment.destroy
-    redirect_to list_path(list.id)
+    redirect_to '/files'
   end
-
 
   private
 

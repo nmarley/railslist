@@ -1,21 +1,14 @@
 <li>
-  <span class="row">
   <%= link_to attachment.media_file_name,
       user_attachment_path(attachment.user.id, attachment.id) %>
 
-  <br>
-  <%= attachment.created_at %>
+  <span class="timestamp">
+    Uploaded <%= time_ago_in_words(attachment.created_at) %> ago.
+  </span>
 
 
-<span class="timestamp">
-  Uploaded <%= time_ago_in_words(attachment.created_at) %> ago.
-</span>
-
-
-
-  <% if signed_in? && can?(:update, @user) %>
-    <%= link_to "delete", user_attachment_path(attachment.user.id, attachment.id), method: :delete, data: { confirm: "You sure?" }, class: "muted" %>
+  <% if signed_in? && can?(:delete, @attachment) %>
+    <%= link_to image_tag("1396329940_file_delete.png", alt: "delete"), user_attachment_path(attachment.user.id, attachment.id), method: :delete, data: { confirm: "You sure?" }, class: 'icon' %>
   <% end %>
 
-  </span>
 </li>
