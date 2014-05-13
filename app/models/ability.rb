@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    can :manage, Attachment, :user_id => user.id
     can :manage, List, :user_id => user.id
     can :grant,  List, :user_id => user.id
 
