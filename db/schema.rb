@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022131114) do
+ActiveRecord::Schema.define(version: 20140513035351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20131022131114) do
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
-    t.integer  "list_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "attachments", ["list_id"], name: "index_attachments_on_list_id", using: :btree
+  add_index "attachments", ["user_id"], name: "index_attachments_on_user_id", using: :btree
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20131022131114) do
   create_table "lists", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "private",    default: "false"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "private",    default: false
     t.string   "acl",        default: ""
   end
 
@@ -87,11 +87,11 @@ ActiveRecord::Schema.define(version: 20131022131114) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email",                      default: ""
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "password_digest"
     t.string   "remember_token",  limit: 22
-    t.boolean  "admin",                      default: "false"
+    t.boolean  "admin",                      default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
