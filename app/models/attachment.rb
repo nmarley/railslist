@@ -4,4 +4,6 @@ class Attachment < ActiveRecord::Base
     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
     :url => "/system/:attachment/:style/:id/:filename"
   do_not_validate_attachment_file_type :media
+
+  scope :most_recent_first, -> { order(self.arel_table[:created_at].desc)}
 end
