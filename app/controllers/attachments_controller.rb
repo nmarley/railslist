@@ -4,9 +4,7 @@ class AttachmentsController < ApplicationController
 
   def index
     # authorize! :read, @attachment.list
-
-    @attachments = current_user.attachments.paginate(page: params[:page])
-    # @attachments = current_user.attachments.most_recent_first.paginate(page: params[:page])
+    @attachments = current_user.attachments.most_recent_first.paginate(page: params[:page])
   end
 
   def show
