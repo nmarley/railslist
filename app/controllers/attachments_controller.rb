@@ -17,7 +17,7 @@ class AttachmentsController < ApplicationController
     @user = User.find(params[:user_id])
     # authorize! :update, @user
     @attachment = @user.attachments.create(attachment_params)
-    redirect_to user
+    redirect_to '/files'
   end
 
   def destroy
