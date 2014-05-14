@@ -29,5 +29,13 @@ describe List do
     it { should_not be_valid }
   end
 
+  describe '.search' do
+    before { @list.save! }
+    it 'searches' do
+      @results = List.search('Grocery')
+      @results.size.should eq(1)
+    end
+  end
+
 end
 
