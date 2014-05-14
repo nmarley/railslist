@@ -44,34 +44,5 @@ describe Item do
     it { should_not be_valid }
   end
 
-
-  # clean up, but still can't get to green.
-  # something to do with how change() is working/not working, i think
-
-#  describe "when saving a new item" do
-#    let(:other_item) { @item.list.items.build(content: 'Second item!') }
-#    before { set_list_updated_at_ts_back(@item.list) }
-#    it "should increment total item count" do
-#      expect do
-#        other_item.save
-#      end.to change(Item, :count).by(1)
-#    end
-#    it "should update list updated_at timestamp" do
-#      expect do
-#        other_item.save
-#      end.to change(other_item.list, :updated_at)
-#    end
-#  end
-#
-#  describe "when updating content" do
-#    before { set_list_updated_at_ts_back(@item.list) }
-#    it "should update list updated_at timestamp" do
-#      expect do
-#        @item.content = "lorem ipsum"
-#        @item.save!
-#      end.to change(@item.list, :updated_at)
-#    end
-#  end
-
 end
 
