@@ -9,7 +9,11 @@ describe List do
   it { should respond_to(:name) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user)    }
-  its(:user) { should == user }
+
+  describe '#user' do
+    subject { super().user }
+    it { should == user }
+  end
 
   it { should be_valid }
 
@@ -33,7 +37,7 @@ describe List do
     before { @list.save! }
     it 'searches' do
       @results = List.search('Grocery')
-      @results.size.should eq(1)
+      expect(@results.size).to eq(1)
     end
   end
 

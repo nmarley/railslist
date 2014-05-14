@@ -23,7 +23,7 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          page.should have_selector('li', text: user.name)
+          expect(page).to have_selector('li', text: user.name)
         end
       end
 
@@ -142,8 +142,8 @@ describe "User pages" do
       it { should have_selector('title', text: new_name) }
       it { should have_selector('div.alert.alert-success') }
       it { should have_link('Sign out', href: signout_path) }
-      specify { user.reload.name.should  == new_name }
-      specify { user.reload.email.should == new_email }
+      specify { expect(user.reload.name).to  eq(new_name) }
+      specify { expect(user.reload.email).to eq(new_email) }
     end
 
   end

@@ -14,7 +14,11 @@ describe Item do
   it { should respond_to(:content) }
   it { should respond_to(:list_id) }
   it { should respond_to(:list)    }
-  its(:list) { should == @list }
+
+  describe '#list' do
+    subject { super().list }
+    it { should == @list }
+  end
 
   it { should be_valid }
 

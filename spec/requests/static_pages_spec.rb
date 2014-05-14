@@ -28,7 +28,7 @@ describe "Static pages" do
 
       it "should render the user's feed" do
         user.feed.each do |item|
-          page.should have_selector("li##{item.id}", text: item.name)
+          expect(page).to have_selector("li##{item.id}", text: item.name)
         end
       end
     end
@@ -62,17 +62,17 @@ describe "Static pages" do
   it "should have the right links on the layout" do
     visit root_path
     click_link "About"
-    page.should have_selector 'title', text: full_title('About')
+    expect(page).to have_selector 'title', text: full_title('About')
     click_link "Help"
-    page.should have_selector 'title', text: full_title('Help')
+    expect(page).to have_selector 'title', text: full_title('Help')
     click_link "Contact"
-    page.should have_selector 'title', text: full_title('Contact Us')
+    expect(page).to have_selector 'title', text: full_title('Contact Us')
     click_link "Home"
     click_link "Sign up now!"
     pending 'sign-ups disabled, so...'
     #page.should have_selector 'title', text: full_title('Sign up')
     click_link "railslist"
-    page.should have_selector 'title', text: full_title('')
+    expect(page).to have_selector 'title', text: full_title('')
   end
 
 end
