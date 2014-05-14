@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :recipes
   #resources :ingredients
 
+  match '/search', to: 'search#index', via: [:get, :post]
+
   put '/items/:id/bump', to: 'items#bump', as: 'bump_item'
 
   get   '/signup',  to: 'users#new'

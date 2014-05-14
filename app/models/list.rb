@@ -20,4 +20,12 @@ class List < ActiveRecord::Base
       all
     end
   end
+
+  scope :for_user, ->(user_id) do
+    if user_id
+      where(user_id: user_id)
+    else
+      none
+    end
+  end
 end
