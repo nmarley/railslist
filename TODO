@@ -1,6 +1,8 @@
 
-* break files out into their own thing (NOT a part of lists)
-  - files should have their own big page
+* tests for files
+  - users can only view their own files in files#index page
+  - users can only see their own files when visiting the specific file's url
+  - users can create files via page (also flesh out Attachment model specs)
 
 * shared lists (one of the main used functions)
 
@@ -11,10 +13,6 @@
 * use s3 storage for files
 
 * tests. lots of tests.
-
-* minitest
-
-* rspec?
 
 * (admin?) settings to turn on/off new user registrations
 
