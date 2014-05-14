@@ -15,12 +15,23 @@ describe Item do
   it { should respond_to(:list_id) }
   it { should respond_to(:list)    }
 
+  it { should be_valid }
+
+  # class methods
+  specify { expect(Item).to respond_to(:search) }
+
   describe '#list' do
     subject { super().list }
     it { should == @list }
   end
 
-  it { should be_valid }
+  describe '.search' do
+    before { subject.save! }
+    it 'searches' do
+      @results = Item.search('kale')
+      expect(@results.size).to eq(1)
+    end
+  end
 
 
   describe "when list_id is not present" do
