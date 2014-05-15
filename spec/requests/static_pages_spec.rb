@@ -61,6 +61,10 @@ describe "Static pages" do
 
   it "should have the right links on the layout" do
     visit root_path
+    expect(page).to_not have_selector 'Recipes'
+    expect(page).to_not have_selector 'Files'
+    expect(page).to_not have_selector 'Item Search'
+
     click_link "About"
     expect(page).to have_selector 'title', text: full_title('About')
     click_link "Help"
