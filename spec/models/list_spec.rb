@@ -14,6 +14,7 @@ describe List do
 
   # class methods
   specify { expect(List).to respond_to(:search) }
+  specify { expect(List).to respond_to(:for_user) }
 
   describe '#user' do
     subject { super().user }
@@ -28,6 +29,13 @@ describe List do
     end
   end
 
+  describe '.for_user' do
+    before { subject.save! }
+    it 'gets lists for_user' do
+      @results = List.for_user(user.id)
+      expect(@results.pluck(:id).sort).to eq(user.lists.pluck(:id).sort)
+    end
+  end
 
   describe "when user_id is not present" do
     before { @list.user_id = nil }

@@ -19,6 +19,7 @@ describe Item do
 
   # class methods
   specify { expect(Item).to respond_to(:search) }
+  specify { expect(Item).to respond_to(:for_user) }
 
   describe '#list' do
     subject { super().list }

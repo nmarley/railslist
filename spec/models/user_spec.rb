@@ -149,7 +149,7 @@ describe User do
     end
 
     it "should destroy associated lists" do
-      lists = @user.lists.dup
+      lists = @user.lists
       @user.destroy
       expect(lists).to be_empty
     end
