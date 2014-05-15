@@ -1,7 +1,7 @@
 <% provide(:title, 'Item Search') %>
 <h1>Item Search</h1>
 
-<%= form_tag search_url, method: :get, id: "search" do %>
+<%= form_tag search_path, method: :get, id: "search" do %>
   <%= text_field_tag :search, params[:search],
     style: "width: 30%",
     autocomplete: "off",
