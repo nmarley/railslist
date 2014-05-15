@@ -1,4 +1,6 @@
 
+* break up factories.rb into factories/*.rb
+
 * tests for files
   - users can only view their own files in files#index page
   - users can only see their own files when visiting the specific file's url
