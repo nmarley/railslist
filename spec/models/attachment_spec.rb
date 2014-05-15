@@ -27,15 +27,23 @@ describe Attachment do
   end
 
   describe '.for_user' do
-    before { subject.save! }
-    it 'gets lists for_user' do
-      @results = List.for_user(user.id)
-      expect(@results.pluck(:id).sort).to eq(user.lists.pluck(:id).sort)
+    before do
+      subject.save!
+      user2 = FactoryGirl.create(:user, name: 'Gandalf')
+      attachment2 = user2.attachments.create(FactoryGirl.attributes_for(:attachment))
+    end
+
+    it 'gets attachments for_user' do
+      @results = Attachment.for_user(user.id)
+      expect(Attachment.count).to eq(2)
+      expect(Attachment.pluck(:user_id).uniq.size).to eq(2)
+      expect(@results.pluck(:id).sort).to eq(user.attachments.pluck(:id).sort)
     end
   end
 
   describe '#create' do
-    before { user.save! }
-    expect { @attachment.save }.to change(Attachment.for_user(user.id), :count).by(1)
+    it 'save attachment to db' do
+      expect { @attachment.save }.to change(Attachment.for_user(user.id), :count).by(1)
+    end
   end
 end

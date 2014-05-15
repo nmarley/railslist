@@ -7,19 +7,14 @@ describe "Attachment pages" do
   before { sign_in user }
 
   describe "attachment creation" do
-    before do
-      list_name = "Grocery list"
-      Timecop.freeze(1.hour.ago) do
-        create_list list_name
-      end
-      click_link list_name
-    end
+    before { visit files_path }
 
-    # obviously a placeholder for the actual test
-    it "should update list timestamp" do
-      # grab the list id and List instance
-      list_id = find('#item_list_id').value.to_i
-      @list = List.find(list_id)
+    it "should add a new file to the index" do
+
+      # count the number of 'li' elements under '.attachments' in the HTML
+      file_page_file_count = lambda {
+        find('.attachments').all('li').count
+      }
 
       # make a temp file for uploading
       tempfile = Tempfile.new('foo.txt')
@@ -29,11 +24,9 @@ describe "Attachment pages" do
       # add/upload attachment
       attach_file('attachment[media]', tempfile.path)
 
-      # verify timestamp for list has been updated
-      expect { click_button 'Add Attachment';@list.reload }.to change(@list, :updated_at)
+      # verify file list on the page has been updated
+      expect { click_button 'Add Attachment' }.to change(file_page_file_count, :call).by(1)
     end
-
   end
 
 end
-
