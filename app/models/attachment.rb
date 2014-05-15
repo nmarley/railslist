@@ -6,4 +6,5 @@ class Attachment < ActiveRecord::Base
   do_not_validate_attachment_file_type :media
 
   scope :most_recent_first, -> { order(self.arel_table[:created_at].desc)}
+  scope :for_user, ->(user_id) { where(user_id: user_id) }
 end
