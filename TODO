@@ -18,3 +18,7 @@
 
 * (admin?) settings to turn on/off new user registrations
 
+* consider devise for authentication
+
+* try mounting mydci onto railslist (for authen purposes)
+
