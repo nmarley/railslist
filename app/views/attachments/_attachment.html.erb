@@ -2,6 +2,11 @@
   <%= link_to attachment.media_file_name,
       user_attachment_path(attachment.user.id, attachment.id) %>
 
+  <span class="metadata">
+    md5: <%= attachment.md5sum %><br>
+    size (bytes): <%= attachment.media_file_size %>
+  </span>
+
   <span class="timestamp">
     Uploaded <%= time_ago_in_words(attachment.created_at) %> ago.
   </span>
