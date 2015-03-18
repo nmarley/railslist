@@ -5,7 +5,7 @@
 
 bind 'unix:///tmp/puma.sock'
 threads 0, 16
-workers 4
+workers 1
 approot = '/var/www/railslist'
 pidfile "#{approot}/shared/pids/puma.pid"
 stdout_redirect "#{approot}/shared/log/puma.log", "#{approot}/shared/log/puma.err", true
