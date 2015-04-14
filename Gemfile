@@ -6,10 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
-
-
 gem 'jquery-rails'
-gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'rails_autolink', '~> 1.1'
@@ -24,9 +21,7 @@ gem 'bootstrap-sass', '3.3.4.1'
 gem 'puma', '~> 2.11'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14'
-  # rspec-rails (3.2.1)
-
+  gem 'rspec-rails', '~> 3.2.1'
   gem 'pry'
   gem 'timecop', require: false
   gem 'byebug'
@@ -45,8 +40,8 @@ end
 
 group :test do
   gem 'minitest', '~> 5.6'
-  gem 'capybara', '1.1.2'
-  # capybara (2.4.4)
+  gem 'capybara', '~> 2.4.4'
+  gem 'faker', '~> 1.4.3'
   gem 'launchy'
 end
 
