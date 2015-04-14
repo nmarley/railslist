@@ -1,4 +1,8 @@
 
+* responsive
+
+* Ajax/JSON updates of items, lists, w/'updated' notice somewhere on-page
+
 * break up factories.rb into factories/*.rb
 
 * tests for files
