@@ -6,11 +6,11 @@ describe List do
 
   subject { @list }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:user_id) }
-  it { should respond_to(:user)    }
+  it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:user_id) }
+  it { is_expected.to respond_to(:user)    }
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 
   # class methods
   specify { expect(List).to respond_to(:search) }
@@ -18,7 +18,7 @@ describe List do
 
   describe '#user' do
     subject { super().user }
-    it { should == user }
+    it { is_expected.to eq(user) }
   end
 
   describe '.search' do
@@ -39,17 +39,17 @@ describe List do
 
   describe "when user_id is not present" do
     before { @list.user_id = nil }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe "with blank name" do
     before { @list.name = " " }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe "with name that is too long" do
     before { @list.name = "a" * 201 }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
 end

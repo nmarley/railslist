@@ -11,11 +11,11 @@ describe Item do
 
   subject { @item }
 
-  it { should respond_to(:content) }
-  it { should respond_to(:list_id) }
-  it { should respond_to(:list)    }
+  it { is_expected.to respond_to(:content) }
+  it { is_expected.to respond_to(:list_id) }
+  it { is_expected.to respond_to(:list)    }
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 
   # class methods
   specify { expect(Item).to respond_to(:search) }
@@ -23,7 +23,7 @@ describe Item do
 
   describe '#list' do
     subject { super().list }
-    it { should == @list }
+    it { is_expected.to eq(@list) }
   end
 
   describe '.search' do
@@ -37,12 +37,12 @@ describe Item do
 
   describe "when list_id is not present" do
     before { @item.list_id = nil }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe "with blank content" do
     before { @item.content = " " }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
 end

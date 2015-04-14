@@ -7,17 +7,17 @@ describe Ingredient do
 
   subject { @ingredient }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:recipes) }
+  it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:recipes) }
 
   describe "when name is not present" do
     before { @ingredient.name = " " }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe "when name is too long" do
     before { @ingredient.name = "a" * 500 }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
 
