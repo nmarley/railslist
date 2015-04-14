@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @item }
+    end
   end
 
   def update
@@ -31,13 +35,10 @@ class ItemsController < ApplicationController
 
   def create
     #authorize! :update, @item.list
+    # TODO: refactor (well, *everything*)
+    # list = List.find(item_params[:list_id])
     list = List.find_by_id(params[:item][:list_id])
     authorize! :update, list
-#    if current_user.id != list.user_id && !perm.nil? && perm.permission != 'w'
-#      flash[:error] = "Not list owner"
-#      redirect_to root_url
-#      return
-#    end
     params[:item].delete(:list_id)
     @item = list.items.build(item_params)
     if @item.save
