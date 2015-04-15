@@ -2,8 +2,8 @@
 <h4>View item</h4>
 
 <div class="row">
-  <div class="span12">
-    Current List: 
+  <div class="col-sm-12 col-md-12">
+    Current List:
     <strong><%= @item.list.name %></strong>
     <p/>
 
@@ -11,7 +11,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :content %>
-      <%= f.text_area :content, readonly: true, rows: 14 %>
+      <%= f.text_area :content, readonly: true, rows: 14, class: 'form-control' %>
 
     <% end %>
     <%= render partial: "list_link", locals: {item: @item} %>

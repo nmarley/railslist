@@ -1,11 +1,11 @@
 <% provide(:title, @list.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="col-sm-4 col-md-4">
     <section>
       <h1>
         <%= @list.name %>
         <% if @list.private? %>
-          <i class="icon-lock"></i>
+          <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
         <% end %>
       </h1>
 
@@ -31,7 +31,7 @@
     <% end %>
 
   </aside>
-  <div class="span8">
+  <div class="col-sm-8 col-md-8">
     <h3>Item Feed</h3>
 
     <% if @items.any? %>

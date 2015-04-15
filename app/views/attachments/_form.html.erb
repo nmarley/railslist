@@ -3,8 +3,8 @@
 
   <div class="field">
     <%= f.label :attachment %>
-    <%= f.file_field :media %>
+    <%= f.file_field :media, class: 'form-control' %>
   </div>
 
-  <%= f.submit "Add Attachment", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Add Attachment", class: "btn btn-lg btn-primary form-control" %>
 <% end %>

@@ -2,20 +2,20 @@
 <h1>Update this list</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="col-lg-offset-3 col-sm-6 col-md-6">
     <%= form_for(@list) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
       <span style="display: block; margin-bottom: 0.5em;">
         <%= f.label :private %>
         <%= f.check_box :private %>
       </span>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-      <%= link_to "cancel", list_path(@list.id), class: "btn btn-info pull-right" %>
+      <%= f.submit "Save changes", class: "btn btn-lg btn-primary form-control" %>
+      <%= link_to "cancel", list_path(@list.id), class: "btn btn-info pull-right form-control" %>
     <% end %>
   </div>
 </div>

@@ -2,17 +2,17 @@
 <h4>Update item</h4>
 
 <div class="row">
-  <div class="span12">
+  <div class="col-sm-12 col-md-12">
     <%= form_for(@item) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :move_to_list %>
-      <%= f.collection_select :list_id, @item.list.user.lists, :id, :name %>
+      <%= f.collection_select :list_id, @item.list.user.lists, :id, :name, class: 'form-control' %>
 
       <%= f.label :content %>
-      <%= f.text_area :content, rows: 14 %>
+      <%= f.text_area :content, rows: 14, class: 'form-control' %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-lg btn-primary form-control" %>
 
     <% end %>
     <%= render partial: "list_link", locals: {item: @item} %>

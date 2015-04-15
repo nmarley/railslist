@@ -1,7 +1,7 @@
 <% provide(:title, 'My Files') %>
 
 <div class="row">
-  <div class="span7">
+  <div class="col-sm-7 col-md-7">
     <h3>My Files</h3>
 
     <%= will_paginate %>
@@ -14,7 +14,7 @@
 
   </div>
 
-  <div class="span4 offset1">
+  <div class="col-lg-offset-1 col-sm-4 col-md-4">
     <h3>Add New File...</h3>
     <%= render 'form' %>
   </div>

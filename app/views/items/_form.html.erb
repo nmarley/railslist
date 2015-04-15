@@ -1,9 +1,9 @@
 <%= form_for(@item) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Create new item..." %>
+    <%= f.text_area :content, placeholder: "Create new item...", class: 'form-control' %>
   </div>
 
-  <%= f.hidden_field :list_id %>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+  <%= f.hidden_field :list_id, class: 'form-control' %>
+  <%= f.submit "Post", class: "btn btn-lg btn-primary form-control" %>
 <% end %>

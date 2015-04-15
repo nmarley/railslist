@@ -2,7 +2,7 @@
   <span class="name">
     <%= link_to wrap(list.name), list_path(list.id) %>
     <% if list.private? %>
-      <i class="icon-lock"></i>
+      <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
     <% end %>
 
     <span class="item-count">
