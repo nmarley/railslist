@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :list, touch: true
+  belongs_to :list, touch: true, counter_cache: true
 
   validates :list_id, presence: true
   validates :content, presence: true
