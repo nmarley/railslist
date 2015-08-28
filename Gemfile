@@ -10,15 +10,14 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'rails_autolink', '~> 1.1'
-gem 'foreigner', '~> 1.7.4'
-gem 'immigrant', '~> 0.3.1'
 gem 'cancan', '~> 1.6.10'
 gem 'bcrypt', '~> 3.1.0'
 gem 'redcarpet', '~> 3.0.0'
 gem 'paperclip'
-#gem 'bootstrap-sass', '2.3.0.1'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'puma', '~> 2.11'
+gem 'typhoeus', require: false
+gem 'kitco', require: false
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
@@ -36,10 +35,11 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'bullet'
 end
 
 group :test do
-  gem 'minitest', '~> 5.6'
+  gem 'minitest', '~> 5.8'
   gem 'capybara', '~> 2.4.4'
   gem 'faker', '~> 1.4.3'
   gem 'launchy'
