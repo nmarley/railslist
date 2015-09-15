@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def bump
     authorize! :update, @item.list
     @item.touch
-    redirect_to list_path(@item.list.id)
+    redirect_to list_path(@item.list_id)
   end
 
   def show
@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
   def update
     authorize! :update, @item.list
     if @item.update_attributes(item_params)
-      flash[:success] = "Item updated!"
-      redirect_to list_path(@item.list.id)
+      redirect_to list_path(@item.list_id), success: 'Item updated!'
     else
       render 'edit'
     end
@@ -36,17 +35,14 @@ class ItemsController < ApplicationController
   def create
     #authorize! :update, @item.list
     # TODO: refactor (well, *everything*)
-    # list = List.find(item_params[:list_id])
-    list = List.find_by_id(params[:item][:list_id])
+    list = List.find(item_params[:list_id])
     authorize! :update, list
-    params[:item].delete(:list_id)
     @item = list.items.build(item_params)
     if @item.save
-      flash[:success] = "Item created!"
-      redirect_to list_path(list.id)
+      redirect_to list_path(list.id), success: 'Item created!'
     else
       @items = []
-      @list = @item.list
+      @list = list
       render "lists/show"
     end
   end

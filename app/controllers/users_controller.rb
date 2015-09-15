@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def new
     if @user
-      redirect_to root_url 
+      redirect_to root_url
     else
       # Temporarily disable user registration, until permissions/ACLs are
       # implemented. ngm, 2013-09-22 (Autumnal Equinox!!)
@@ -26,17 +26,16 @@ class UsersController < ApplicationController
 
   def create
     if @user
-      redirect_to root_url 
+      redirect_to root_url
     else
       redirect_to root_url, alert: "User registration is disabled."
-      #@user = User.new(user_params)
-      #if @user.save
+      # @user = User.new(user_params)
+      # if @user.save
       #  sign_in @user
-      #  flash[:success] = "Welcome to RailsList!"
-      #  redirect_to @user
-      #else
+      #  redirect_to @user, success: 'welcome'
+      # else
       #  render 'new'
-      #end
+      # end
     end
   end
 
@@ -45,9 +44,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
       sign_in @user
-      redirect_to @user
+      redirect_to @user, success: 'Profile updated'
     else
       render 'edit'
     end
@@ -55,8 +53,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
+    redirect_to users_url, success: 'User destroyed'
   end
 
   private
