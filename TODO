@@ -1,4 +1,9 @@
 
+
+* s3 for files (12factor)
+  - https://gist.github.com/cblunt/1303386
+  - https://github.com/carrierwaveuploader/carrierwave
+
 * responsive
 
 * Ajax/JSON updates of items, lists, w/'updated' notice somewhere on-page
@@ -15,8 +20,6 @@
 * open-source this for real
 
 * add an "undo" action to item deletes
-
-* use s3 storage for files
 
 * tests. lots of tests.
 
