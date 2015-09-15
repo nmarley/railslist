@@ -18,7 +18,6 @@ describe User do
   it { is_expected.to respond_to(:remember_token) }
   it { is_expected.to respond_to(:authenticate) }
   it { is_expected.to respond_to(:admin) }
-  it { is_expected.to respond_to(:feed) }
   it { is_expected.to respond_to(:lists) }
 
   it { is_expected.to be_valid }

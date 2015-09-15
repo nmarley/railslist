@@ -7,6 +7,7 @@ class ListsController < ApplicationController
     if @list.save
       flash[:success] = "List created!"
       redirect_to root_url
+    # wth was I thinking...?
     else
       @feed_items = []
       render 'static_pages/home'
@@ -26,7 +27,7 @@ class ListsController < ApplicationController
   def show
     # for item form (which is displayed on lists page)
     @item = @list.items.build
-    @items = @list.feed.paginate(page: params[:page])
+    @items = @list.items.paginate(page: params[:page])
   end
 
   def index

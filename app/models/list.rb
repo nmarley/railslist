@@ -8,10 +8,6 @@ class List < ActiveRecord::Base
 
   default_scope -> { order('lists.updated_at DESC') }
 
-  def feed
-    items
-  end
-
   def self.search(search)
     if search
       where('lower(name) like lower(?)', "%#{search}%")
