@@ -15,7 +15,6 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to @user, :remember_token
     assert_respond_to @user, :authenticate
     assert_respond_to @user, :admin
-    assert_respond_to @user, :feed
     assert_respond_to @user, :lists
     assert_respond_to @user, :items
     assert_respond_to @user, :user_list_permissions

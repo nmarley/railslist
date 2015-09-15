@@ -1,4 +1,5 @@
 class Attachment < ActiveRecord::Base
+  # TODO: s3, no filesystem
   belongs_to :user
   has_attached_file :media,
     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
