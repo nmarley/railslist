@@ -5,10 +5,10 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.build(list_params)
     if @list.save
-      flash[:success] = "List created!"
-      redirect_to root_url
+      redirect_to root_url, success: 'List created!'
+    # wth was I thinking...?
     else
-      @feed_items = []
+      @lists = []
       render 'static_pages/home'
     end
   end
@@ -16,8 +16,7 @@ class ListsController < ApplicationController
   def update
     authorize! :update, @list
     if @list.update_attributes(list_params)
-      flash[:success] = "List updated"
-      redirect_to @list
+      redirect_to @list, success: 'List updated'
     else
       render 'edit'
     end
@@ -26,7 +25,7 @@ class ListsController < ApplicationController
   def show
     # for item form (which is displayed on lists page)
     @item = @list.items.build
-    @items = @list.feed.paginate(page: params[:page])
+    @items = @list.items.paginate(page: params[:page])
   end
 
   def index

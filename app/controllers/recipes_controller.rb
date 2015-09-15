@@ -11,8 +11,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         format.html {
-          flash[:success] = "Recipe created!"
-          redirect_to recipes_url
+          redirect_to recipes_url, success: 'Recipe created!'
         }
         format.json {
           render action: 'show', status: :created, location: @recipe
@@ -42,7 +41,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to @recipe, success: 'Recipe was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
