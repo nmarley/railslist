@@ -18,6 +18,7 @@ gem 'bootstrap-sass', '3.3.4.1'
 gem 'puma', '~> 2.11'
 gem 'typhoeus', require: false
 gem 'kitco', require: false
+gem 'figaro'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'

@@ -6,3 +6,6 @@
 public/
 config/secrets.yml
 db/dumps/
+
+# Ignore application configuration
+/config/application.yml
