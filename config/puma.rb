@@ -3,7 +3,8 @@
 # start server with:
 # puma -C config/puma.rb
 
-bind 'unix:///tmp/puma.sock'
+# bind 'unix:///tmp/puma.sock'
+bind 'tcp://127.0.0.1:49292'
 threads 0, 16
 workers 1
 approot = '/var/www/railslist'
