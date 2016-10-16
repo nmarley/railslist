@@ -19,6 +19,7 @@ gem 'puma', '~> 2.11'
 gem 'typhoeus', require: false
 gem 'kitco', require: false
 gem 'figaro'
+gem 'capistrano', '~> 2.15'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
