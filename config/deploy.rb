@@ -7,7 +7,7 @@ default_run_options[:env] = {'PATH' => '/opt/ruby/bin:$PATH'}
 set :application, "rails_list"
 
 set :scm, :git
-set :repository,  "gitolite@blackcarrot.be:railslist"
+set :repository,  "gitolite3@blackcarrot.be:railslist"
 set :scm_passphrase, ""
 
 set :user, "deploy"
